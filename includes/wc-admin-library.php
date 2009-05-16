@@ -810,8 +810,6 @@ function comic_page_library() {
 					</optgroup>
 				</select>
 				<input type="submit" value="<?php _e( 'Apply', 'webcomic' ); ?>" name="Submit1" class="button-secondary action" />
-				<?php } if ( current_user_can( 'edit_others_posts' ) ) { ?>
-				<span id="comic_regen_thumbs" style="display:none;"> <img src="<?php echo webcomic_include_url( 'load.gif' ); ?>" alt="Working&hellip;." style="vertical-align:middle" /> <?php _e( 'Please wait while WebComic attempts to regenerate your comic thumbnails&hellip;', 'webcomic' ); ?></span>
 				<?php } ?>
 			</div>
 			<?php echo $paged_links; ?>
