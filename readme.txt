@@ -1,9 +1,9 @@
 === Rorschach Quote ===
 Contributors: mgsisk
 Tags: comic,watchmen,rorschach,quote,widget
-Requires at least: 2.0
-Tested up to: 2.7b2
-Stable tag: 1.0.0
+Requires at least: 2.8
+Tested up to: 2.8.4
+Stable tag: 2.0.0
 
 Displays randomly selected Rorschach quotes from the Watchmen graphic novel. Rated Mature for strong, graphic language.
 
@@ -20,9 +20,3 @@ This widget and its author are in no way associated with DC Comics, Warner Bros.
 1. Upload `rorschach-quote.php` to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Drop the widget in your sidebar or place `<?php rorschach_quote(); ?>` in your template
-
-== Frequently Asked Questions ==
-
-= Rated "Mature"? =
-
-Some of Rorschach's quotes may be found offensive to you or your readers. If this is the case, I recommend *not* using this plugin.
