@@ -71,10 +71,10 @@ class rorschach_quotes {
 			array( __( "Joking, of course.", __CLASS__ ), "Rorschach" ),
 			array( __( "No. Not even in the face of Armageddon.", __CLASS__ ), "Rorschach" )
 		);
-	}
 		
 		//Add widgets
 		add_action( 'widgets_init', array( &$this, 'widgets_init' ) );
+	}
 	
 	// ~~~~~~~~~~~~~~
 	// Core Functions
