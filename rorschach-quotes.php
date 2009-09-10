@@ -4,21 +4,20 @@ Text Domain: rorschach_quotes
 Plugin Name: Rorschach Quotes
 Plugin URI: http://maikeruon.com/
 Description: Adds the Rorschach Quotes widget, which displays randomly selected Rorschach quotes from the <a href="http://en.wikipedia.org/wiki/Watchmen" target="_blank">Watchmen</a> graphic novel.
-Version: 2.0.0
+Version: 2.0.1
 Author: Michael Sisk
 Author URI: http://maikeruon.com/
 */
 
 final class rorschach_quotes {
-	const version = '1.0.0';
+	const version = '2.0.1';
 	
-	private $options, $plugin_dir, $plugin_url, $quotes;
+	private $quotes;
 	
 	function __construct() {
+		$this->domain();
+		
 		//Set parameters
-		$this->options    = get_option( 'rorschach_quotes_options' );
-		$this->plugin_dir = ( false === strpos( __DIR__, WPMU_PLUGIN_DIR ) ) ? WP_PLUGIN_DIR . '/' . dirname( plugin_basename( __FILE__ ) ) : WPMU_PLUGIN_DIR . '/' . dirname( plugin_basename( __FILE__ ) );
-		$this->plugin_url = ( false === strpos( __DIR__, WPMU_PLUGIN_DIR ) ) ? WP_PLUGIN_URL . '/' . str_replace( basename( __FILE__ ), '', plugin_basename( __FILE__ ) ) : WPMU_PLUGIN_URL . '/' . str_replace( basename( __FILE__ ), '', plugin_basename( __FILE__ ) );
 		$this->quotes     = array(
 			array( __( "Dog carcass in alley this morning, tire tread on burst stomach. This city is afraid of me. I have seen its true face.", __CLASS__ ), __( "Rorschach's Journal", __CLASS__ ), "497937600" ),
 			array( __( "The streets are extended gutters and the gutters are full of blood and when the drains finally scab over, all the vermin will drown.", __CLASS__ ), __( "Rorschach's Journal", __CLASS__ ), "497937600" ),
@@ -75,11 +74,6 @@ final class rorschach_quotes {
 		
 		//Add widgets
 		add_action( 'widgets_init', array( &$this, 'widgets_init' ) );
-		
-		//Register activation and deactivation hooks
-		register_activation_hook( __FILE__, array( &$this, 'activate' ) );
-		register_deactivation_hook( __FILE__, array( &$this, 'deactivate' ) );
-	}
 	
 	// ~~~~~~~~~~~~~~
 	// Core Functions
@@ -87,28 +81,6 @@ final class rorschach_quotes {
 	
 	/** Load text domain for translations. */
 	function domain() { load_plugin_textdomain( __CLASS__, $this->plugin_dir, dirname( plugin_basename( __FILE__ ) ) ); }
-	
-	/** Activate the plugin. */
-	function activate() {
-		$action = ( $this->options ) ? 'upgrade' : 'install';
-		add_action( 'init', array( &$this, $action ) );
-	}
-	
-	/** Deactivate the plugin. */
-	function deactivate() { add_action( 'init', array( &$this, 'uninstall' ) ); }
-	
-	/** Run-once installation. */
-	function install() {
-		add_option( 'rorschach_quotes_options', array(
-			'version' => self::version
-		) );
-	}
-	
-	/** Run-once uninstallation. */
-	function uninstall() { delete_option( 'rorschach_quotes_options' ); }
-	
-	/** Upgrades previous installations. */
-	function upgrade() { $this->option( 'version', self::version ); }
 	
 	/** Register plugin widgets. */
 	function widgets_init() { register_widget( 'rorschach_quotes_widget' ); }

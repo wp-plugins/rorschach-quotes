@@ -3,7 +3,7 @@ Contributors: mgsisk
 Tags: comic,watchmen,rorschach,quote,widget
 Requires at least: 2.8
 Tested up to: 2.8.4
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 
 Displays randomly selected Rorschach quotes from the Watchmen graphic novel. Rated Mature for strong, graphic language.
 
