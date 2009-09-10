@@ -9,7 +9,7 @@ Author: Michael Sisk
 Author URI: http://maikeruon.com/
 */
 
-final class rorschach_quotes {
+class rorschach_quotes {
 	const version = '2.0.1';
 	
 	private $quotes;
@@ -71,6 +71,7 @@ final class rorschach_quotes {
 			array( __( "Joking, of course.", __CLASS__ ), "Rorschach" ),
 			array( __( "No. Not even in the face of Armageddon.", __CLASS__ ), "Rorschach" )
 		);
+	}
 		
 		//Add widgets
 		add_action( 'widgets_init', array( &$this, 'widgets_init' ) );
